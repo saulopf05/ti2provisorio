@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analisar PC - TechUpgrade</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="analisar">
+  <div class="site-shell">
+    <div id="site-header"></div>
+    <main>
+      <section class="page-hero center">
+        <div class="container" style="max-width: 920px;">
+          <h1>Analisar meu PC</h1>
+          <p class="lead mt-2">Envie uma captura de tela das configurações do seu computador e escolha seu objetivo.</p>
+        </div>
+      </section>
+
+      <section class="section" style="padding-top: 28px;">
+        <div class="container" style="max-width: 920px;">
+          <div class="progress">
+            <div class="progress-numbers">
+              <div class="progress-number active" id="progress-step-1">1</div>
+              <div class="progress-line" id="progress-line-1"></div>
+              <div class="progress-number" id="progress-step-2">2</div>
+            </div>
+            <div class="progress-labels">
+              <span class="active" id="label-step-1">Enviar Imagem</span>
+              <span id="label-step-2">Selecionar Objetivo</span>
+            </div>
+          </div>
+
+          <section class="card full" id="step-1-card">
+            <div class="card-header">
+              <h2>📤 Envie a configuração do seu PC</h2>
+              <p>Faça upload de uma captura de tela das especificações do sistema.</p>
+            </div>
+            <div class="tip-box">
+              <div class="info-icon">ℹ️</div>
+              <div>
+                <strong>Como obter as informações do PC:</strong>
+                <ul>
+                  <li>Windows: pressione Win + R, digite <strong>dxdiag</strong> e tire um print.</li>
+                  <li>Ou vá em Configurações &gt; Sistema &gt; Sobre.</li>
+                  <li>Programas como CPU-Z ou Speccy também funcionam.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="mt-4" id="upload-state-empty">
+              <label class="upload-box" id="upload-box" for="analysis-image">
+                <div>
+                  <div class="big-icon">🖼️</div>
+                  <h3>Arraste uma imagem ou clique para selecionar</h3>
+                  <p>PNG, JPG ou JPEG (máx. 10MB)</p>
+                </div>
+              </label>
+            </div>
+
+            <div class="mt-4 hidden" id="upload-state-preview">
+              <div class="upload-preview">
+                <img id="analysis-image-preview" alt="Preview da configuração enviada">
+                <button class="remove-image-btn" type="button" id="remove-image-btn">✕</button>
+                <div class="image-caption">Imagem carregada: <strong id="analysis-image-name"></strong></div>
+              </div>
+            </div>
+
+            <input class="hidden" type="file" id="analysis-image" accept="image/*">
+
+            <div class="actions-row">
+              <div></div>
+              <button class="btn btn-primary" type="button" id="go-step-2" disabled>Continuar →</button>
+            </div>
+          </section>
+
+          <section class="card full hidden" id="step-2-card">
+            <div class="card-header">
+              <h2>🎯 Qual será o objetivo do seu PC?</h2>
+              <p>Selecione o principal uso para analisarmos se sua configuração é adequada.</p>
+            </div>
+            <div class="grid-objectives" id="objective-grid"></div>
+            <div class="image-inline-preview mt-4" id="selected-image-mini-preview"></div>
+            <div class="actions-row">
+              <button class="btn btn-secondary" type="button" id="back-step-1">← Voltar</button>
+              <button class="btn btn-primary" type="button" id="submit-analysis" disabled>Analisar meu PC →</button>
+            </div>
+          </section>
+        </div>
+      </section>
+    </main>
+    <div id="site-footer"></div>
+  </div>
+  <script src="js/config.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/analisar.js"></script>
+</body>
+</html>

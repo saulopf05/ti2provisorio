@@ -1,0 +1,29 @@
+cff-version: 1.0.1
+message: Please cite this software using these metadata.
+title: TechUpgrade
+authors:
+  - family-names: Fonseca Saliba
+    given-names: Gabriel
+  - family-names: Almeida Freitas
+    given-names: Guilherme
+  - family-names: Mendes Senna Electo Queiroz
+    given-names: Matheus
+  - family-names: Peixoto Ferreira
+    given-names: Saulo
+  - name-suffix: Professor
+    affiliation: PUC Minas
+    family-names: de Oliveira Capanema
+    given-names: Daniel
+  - name-suffix: Professor
+    affiliation: PUC Minas
+    family-names: Soares Gomes
+    given-names: Marco Paulo
+keywords:
+  - Upgrade de PC
+  - Compatibilidade de hardware
+  - Desempenho do computador
+  - Peças recomendadas
+repository-code: https://github.com/ICEI-PUC-Minas-CC-TI/plmg-cc-ti2-2026-1-g10-techupgrade
+license: CC-BY-4.0
+version: 1.0.0
+date-released: 2022-07-14

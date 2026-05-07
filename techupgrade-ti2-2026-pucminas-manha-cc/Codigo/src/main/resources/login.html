@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entrar - TechUpgrade</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="auth-page" data-page="login" data-layout="none" data-auth-mode="login">
+  <section class="auth-card">
+    <a class="brand" href="index.html"><span class="brand-mark">TU</span><span>TechUpgrade</span></a>
+    <div class="auth-card-header mt-3">
+      <h1>Bem-vindo de volta</h1>
+      <p>Entre com suas credenciais para acessar sua conta.</p>
+    </div>
+    <form id="auth-form" class="form-grid" novalidate>
+      <div class="field">
+        <label for="email">E-mail</label>
+        <input id="email" type="email" placeholder="seu@email.com">
+        <div class="field-error" id="error-email"></div>
+      </div>
+      <div class="field">
+        <div style="display:flex;justify-content:space-between;gap:12px;align-items:center;">
+          <label for="senha">Senha</label>
+          <a href="#" class="text-primary" style="font-size:.92rem; font-weight:700;">Esqueceu a senha?</a>
+        </div>
+        <div class="password-wrap">
+          <input id="senha" type="password" placeholder="••••••••">
+          <button id="toggle-password" class="password-toggle" type="button">Mostrar</button>
+        </div>
+        <div class="field-error" id="error-senha"></div>
+      </div>
+      <div class="field-error" id="error-geral"></div>
+      <button class="btn btn-primary btn-block" id="auth-submit" type="submit">Entrar</button>
+      <p class="auth-footnote">Não tem uma conta? <a href="cadastro.html">Criar conta</a></p>
+    </form>
+  </section>
+  <div id="site-footer"></div>
+  <script src="js/config.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

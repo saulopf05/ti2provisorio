@@ -4,12 +4,11 @@ import static spark.Spark.*;
 
 import config.ServerConfig;
 import service.AnalysisService;
-import service.ComponentService;
-import service.UserService;
+import controler.*;
 
 public class Aplicacao {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception{
 
         // Carrega configurações do sistema
         ServerConfig config = new ServerConfig();
@@ -43,9 +42,6 @@ public class Aplicacao {
             return "OK";
         });
 
-        // Inicializa services
-        UserService userService = new UserService();
-        ComponentService componentService = new ComponentService();
         AnalysisService analysisService = new AnalysisService();
 
         // Rota inicial
@@ -53,18 +49,15 @@ public class Aplicacao {
             return "{\"message\":\"TechUpgrade API ONLINE\"}";
         });
 
-        // USERS
-        post("/users/register", userService::register);
+        //UserRoutes
+        UserController.startUserRoutes();
+        ComponentController.startComponentRoutes();
 
-        get("/users/:id", userService::getById);
 
-        // COMPONENTS
-        get("/components", componentService::getAll);
-
-        get("/components/type/:type", componentService::getByType);
 
         // ANALYSIS
         get("/analysis/history/:userId", analysisService::history);
+        
 
         System.out.println("TechUpgrade API ONLINE");
         System.out.println("Porta: " + config.getPort());

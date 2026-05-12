@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Criar Conta - TechUpgrade</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="auth-page" data-page="cadastro" data-layout="none" data-auth-mode="cadastro">
+  <section class="auth-card">
+    <a class="brand" href="index.html"><span class="brand-mark">TU</span><span>TechUpgrade</span></a>
+    <div class="auth-card-header mt-3">
+      <h1>Criar conta</h1>
+      <p>Preencha os dados abaixo para criar sua conta.</p>
+    </div>
+    <form id="auth-form" class="form-grid" novalidate>
+      <div class="field">
+        <label for="nome">Nome completo</label>
+        <input id="nome" type="text" placeholder="Seu nome">
+        <div class="field-error" id="error-nome"></div>
+      </div>
+      <div class="field">
+        <label for="email">E-mail</label>
+        <input id="email" type="email" placeholder="seu@email.com">
+        <div class="field-error" id="error-email"></div>
+      </div>
+      <div class="field">
+        <label for="senha">Senha</label>
+        <div class="password-wrap">
+          <input id="senha" type="password" placeholder="••••••••">
+          <button id="toggle-password" class="password-toggle" type="button">Mostrar</button>
+        </div>
+        <div class="field-error" id="error-senha"></div>
+      </div>
+      <div class="field">
+        <label for="confirmarSenha">Confirmar senha</label>
+        <input id="confirmarSenha" type="password" placeholder="••••••••">
+        <div class="field-error" id="error-confirmarSenha"></div>
+      </div>
+      <div class="field-error" id="error-geral"></div>
+      <button class="btn btn-primary btn-block" id="auth-submit" type="submit">Criar conta</button>
+      <p class="auth-footnote">Já tem uma conta? <a href="login.html">Entrar</a></p>
+    </form>
+  </section>
+  <div id="site-footer"></div>
+  <script src="js/config.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

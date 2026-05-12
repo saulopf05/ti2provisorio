@@ -1,4 +1,5 @@
 package config;
+import io.github.cdimascio.dotenv.Dotenv;
 
 public class ServerConfig {
     private final int port;
@@ -8,37 +9,34 @@ public class ServerConfig {
     private final String mistralApiKey;
     private final String jwtSecret;
     private final String corsOrigin;
-
+    private final Dotenv dotenv;
+    
     public ServerConfig() {
-        this.port = readInt("PORT", 8080);
-        this.dbUrl = read("DB_URL", "jdbc:postgresql://localhost:5432/techupgrade_db");
-        this.dbUser = read("DB_USER", "postgres");
-        this.dbPassword = read("DB_PASSWORD", "postgres");
-        this.mistralApiKey = read("MISTRAL_API_KEY", "");
-        this.jwtSecret = read("JWT_SECRET", "troque-este-segredo-em-producao");
-        this.corsOrigin = read("CORS_ORIGIN", "*");
+        System.out.println("Configurando e lendo variáveis de ambiente");
+        this.dotenv = Dotenv.configure()
+                    .ignoreIfMissing()
+                    .load();
+                    
+        this.port = Integer.parseInt(dotenv.get("PORT", "8080"));
 
-        System.setProperty("DB_URL", dbUrl);
-        System.setProperty("DB_USER", dbUser);
-        System.setProperty("DB_PASSWORD", dbPassword);
-    }
+        this.dbUrl             = dotenv.get("DB_URL");
+        this.dbUser            = dotenv.get("DB_USER");
+        this.dbPassword        = dotenv.get("DB_PASSWORD");
+        this.mistralApiKey     = dotenv.get("MISTRAL_API_KEY");
+        this.jwtSecret         = dotenv.get("JWT_SECRET");
+        this.corsOrigin        = dotenv.get("CORS_ORIGIN");
 
-    private String read(String name, String fallback) {
-        String value = System.getenv(name);
-        if (value == null || value.trim().isEmpty()) return fallback;
-        return value.trim();
-    }
 
-    private int readInt(String name, int fallback) {
-        try {
-            return Integer.parseInt(read(name, String.valueOf(fallback)));
-        } catch (Exception e) {
-            return fallback;
-        }
+        System.out.println(dbUrl);
+        System.out.println(dbUser);
+
     }
 
     public int getPort() { return port; }
     public String getMistralApiKey() { return mistralApiKey; }
     public String getJwtSecret() { return jwtSecret; }
     public String getCorsOrigin() { return corsOrigin; }
+    public String getUrl() { return this.dbUrl; }
+    public String getUser() { return this.dbUser; }
+    public String getPassword() { return this.dbPassword; }
 }

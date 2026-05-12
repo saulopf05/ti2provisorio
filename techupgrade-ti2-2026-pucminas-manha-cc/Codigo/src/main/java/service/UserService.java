@@ -21,7 +21,7 @@ public class UserService {
         gson = new Gson();
     }
 
-    public Object register(Request req, Response res) {
+    /*public Object register(Request req, Response res) {
         try {
 
             AuthRequest request = gson.fromJson(req.body(), AuthRequest.class);
@@ -45,7 +45,7 @@ public class UserService {
             res.status(500);
             return gson.toJson(new ApiResponse(false, e.getMessage()));
         }
-    }
+    }*/
 
     public Object getById(Request req, Response res) {
         try {
